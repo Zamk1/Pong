@@ -10,7 +10,7 @@
         Title="MainWindow" Height="440" Width="750" Loaded="wnd_Loaded">
     <Canvas x:Name="Cvs" SizeChanged="Cvs_SizeChanged" Margin="0,0,2,0">
         <Menu Name="MainMenu" IsMainMenu="True" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="43" Canvas.Left="10" Canvas.Top="10">
-            <MenuItem Name="Header" Header="Spiel" Width="41">
+            <MenuItem Name="Header" Header="Spiel" Width="41" Focusable="False">
                 <MenuItem Name="start" Header="Start" Click="start_Click" />
                 <MenuItem Name="ende" Header="Ende" Click="ende_Click" />
                 <MenuItem Name="parameter" Header="Parameter" Click="parameter_Click" />
@@ -46,7 +46,7 @@
         <Border x:Name="b_vs" BorderBrush="Black" BorderThickness="4" Height="90" Canvas.Left="180" Canvas.Top="299" Width="180">
             <Label x:Name="l_vs" Content="vs." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Stencil" FontStyle="Italic"/>
         </Border>
-        <Slider x:Name="Slider_speed" Canvas.Left="18" Canvas.Top="307" Height="20" Width="248"  Value="1" Maximum="2" Minimum="0.1">
+        <Slider x:Name="Slider_speed" Canvas.Left="18" Canvas.Top="307" Height="20" Width="248"  Value="1" Maximum="2" Minimum="0.1" Focusable="False">
             <Slider.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
