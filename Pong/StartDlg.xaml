@@ -1,0 +1,55 @@
+﻿<Window x:Name="Window" x:Class="DlgMenuDemo.StartDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        mc:Ignorable="d"
+        Title="StartDlg" Height="400" Width="340" ResizeMode="CanMinimize" Loaded="Window_Loaded">
+    <Canvas>
+        <Label Content="Radius" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="11" Canvas.Top="45"/>
+        <TextBox x:Name="radius" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Canvas.Left="115" Canvas.Top="48" Text="10" />
+        <Button x:Name="OK" Content="OK" Canvas.Left="10" Canvas.Top="326" Width="75" Click="OK_Click" IsDefault="True"/>
+        <Button x:Name="cancel" Content="Cancel" Canvas.Left="167" Canvas.Top="326" Width="75" IsCancel="True"/>
+        <Label Content="(0 &lt; Radius &lt; 21)" Canvas.Left="167" Canvas.Top="45"/>
+        <Label Content="Paddel Laenge" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="11" Canvas.Top="71"/>
+        <TextBox x:Name="paddel" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Canvas.Left="115" Canvas.Top="74" Text="80" />
+        <Label Content="(49 &lt; Laenge &lt; 181)" Canvas.Left="167" Canvas.Top="71"/>
+        <Label Content="Win Score" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="11" Canvas.Top="97"/>
+        <TextBox x:Name="Score" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Canvas.Left="115" Canvas.Top="100" Text="10" />
+        <Label Content="(0 &lt; Score &lt; 101)" Canvas.Left="167" Canvas.Top="97"/>
+        <ComboBox x:Name="cmb_farben" Canvas.Left="115" Canvas.Top="128" Width="169" SelectionChanged="cmb_farben_SelectionChanged"/>
+        <Label Content="Farbset" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="11" Canvas.Top="124"/>
+
+        <xctk:ColorPicker Name="ClrPcker_Paddel" Canvas.Left="441" Canvas.Top="50" Height="16" Width="92" SelectedColor="Red" Visibility="Hidden"/>
+        <xctk:ColorPicker x:Name="ClrPcker_Ball" Canvas.Left="441" Canvas.Top="75" Height="16" Width="92" SelectedColor="Blue" Visibility="Hidden"/>
+        <xctk:ColorPicker x:Name="ClrPcker_Spielfeldrand" Canvas.Left="441" Canvas.Top="100" Height="16" Width="92" SelectedColor="DarkGray" Visibility="Hidden"/>
+        <xctk:ColorPicker x:Name="ClrPcker_Background" Canvas.Left="441" Canvas.Top="125" Height="16" Width="92" SelectedColor="White" Visibility="Hidden"/>
+        <xctk:ColorPicker x:Name="ClrPcker_Uhrfill" Canvas.Left="441" Canvas.Top="150" Height="16" Width="92" SelectedColor="White" Visibility="Hidden"/>
+        <xctk:ColorPicker x:Name="ClrPcker_Uhrstroke" Canvas.Left="441" Canvas.Top="175" Height="16" Width="92" SelectedColor="Black" Visibility="Hidden"/>
+        <xctk:ColorPicker x:Name="ClrPcker_Sekz" Canvas.Left="441" Canvas.Top="200" Height="16" Width="92" SelectedColor="Black" Visibility="Hidden"/>
+        <xctk:ColorPicker x:Name="ClrPcker_Minz" Canvas.Left="441" Canvas.Top="225" Height="16" Width="92" SelectedColor="Black" Visibility="Hidden"/>
+        <xctk:ColorPicker x:Name="ClrPcker_Stuz" Canvas.Left="441" Canvas.Top="250" Height="16" Width="92" SelectedColor="Black" Visibility="Hidden"/>
+        <xctk:ColorPicker x:Name="ClrPcker_hud" Canvas.Left="441" Canvas.Top="275" Height="16" Width="92" SelectedColor="Black" Visibility="Hidden"/>
+
+        <Label x:Name="l1" Content="Paddel Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="45" Visibility="Hidden"/>
+        <Label x:Name="l2" Content="Ball Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="70" Visibility="Hidden"/>
+        <Label x:Name="l3" Content="Spielfeldrand Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="95" Visibility="Hidden"/>
+        <Label x:Name="l4" Content="Background Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="120" Visibility="Hidden"/>
+        <Label x:Name="l5" Content="Uhr Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="145" Visibility="Hidden"/>
+        <Label x:Name="l6" Content="Uhrrand Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="170" Visibility="Hidden"/>
+        <Label x:Name="l7" Content="Sekunden Zeiger Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="195" Visibility="Hidden"/>
+        <Label x:Name="l8" Content="Minuten Zeiger Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="220" Visibility="Hidden"/>
+        <Label x:Name="l9" Content="Stunden Zeiger Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="245" Visibility="Hidden"/>
+        <Label x:Name="l10" Content="HUD Farbe" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="310" Canvas.Top="270" Visibility="Hidden"/>
+        
+        <CheckBox x:Name="check_ball" Content="Ball zurücksetzen nach punkt" Canvas.Left="115" Canvas.Top="161" Height="20" Width="182"/>
+        <CheckBox x:Name="check_paddel" Content="Automatisches Paddel" Canvas.Left="115" Canvas.Top="186" Height="20" Width="182" Click="Check_paddel_Click"/>
+        <TextBox x:Name="Player_one" Height="23" Canvas.Left="115" TextWrapping="Wrap" Text="Player One" Canvas.Top="211" Width="120"/>
+        <TextBox x:Name="Player_two" Height="23" Canvas.Left="115" TextWrapping="Wrap" Text="Player Two" Canvas.Top="239" Width="120"/>
+        <Label Content="Name Player One" Canvas.Left="11" Canvas.Top="207"/>
+        <Label x:Name="l_player_two" Content="Name Player Two" Canvas.Left="11" Canvas.Top="235"/>
+
+
+    </Canvas>
+</Window>
