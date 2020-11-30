@@ -147,6 +147,8 @@ namespace DlgMenuDemo
                     box_up.Background = background;
                     box_down.Background = background;
                 }
+            }else{
+                
             }
             #endregion
 
