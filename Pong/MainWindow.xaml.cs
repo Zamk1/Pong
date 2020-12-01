@@ -25,6 +25,7 @@ namespace DlgMenuDemo
         Line l;
         Paddel player1, player2;
         double strich, strich1;
+        double scaling;
         Brush paddle, rectrand, uhrfill, uhrstroke, ballfill, hud, sekz, minz, stuz, background;
         BrushConverter brush = new BrushConverter();
         Brush darkmode;
@@ -95,6 +96,7 @@ namespace DlgMenuDemo
         private void B_speed_Click(object sender, RoutedEventArgs e)
         {
             ball.changespeed(Slider_speed.Value);
+            scaling = Slider_speed.Value;
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -148,20 +150,23 @@ namespace DlgMenuDemo
                     box_down.Background = background;
                 }
             }else{
-                
+                if (ball.Vx > 0)
+                {
+                    double 
+                }
             }
             #endregion
 
             if (score1 == dlg.maxscore)
             {
                 timer.Stop();
-                MessageBox.Show(l_Player_One_Name.Content + "hat gewonnen", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(l_Player_One_Name.Content + "hat gewonnen", "Win", MessageBoxButton.OK, MessageBoxImage.Information);
                 neues_spiel();
             }
             else if (score2 == dlg.maxscore)
             {
                 timer.Stop();
-                MessageBox.Show(l_Player_Two_Name.Content + "hat gewonnen", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(l_Player_Two_Name.Content + "hat gewonnen", "Win", MessageBoxButton.OK, MessageBoxImage.Information);
                 neues_spiel();
             }
 
