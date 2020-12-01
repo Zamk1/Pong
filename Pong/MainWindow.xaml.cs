@@ -25,7 +25,7 @@ namespace DlgMenuDemo
         Line l;
         Paddel player1, player2;
         double strich, strich1;
-        double scaling;
+        double scaling = 1;
         Brush paddle, rectrand, uhrfill, uhrstroke, ballfill, hud, sekz, minz, stuz, background;
         BrushConverter brush = new BrushConverter();
         Brush darkmode;
@@ -131,7 +131,7 @@ namespace DlgMenuDemo
                 box_w.Background = background;
                 box_s.Background = background;
             }
-            if (!autopaddel) { 
+            if (!autopaddel) {
                 if (Keyboard.IsKeyDown(Key.Down) && player2.canmovedown)
                 {
                     player2.move(ticks - ticks_old, 15);
@@ -149,33 +149,42 @@ namespace DlgMenuDemo
                     box_up.Background = background;
                     box_down.Background = background;
                 }
-            }else{
+            } else {
                 if (ball.Vx > 0)
                 {
-                    double 
+                    double trys = (ball.X + ball.Vx * ticks - ticks_old / 1000 * scaling) / (ticks - ticks_old) * (Canvas.GetLeft(player2.rect) - ball.X);
+                    double sys = (ticks - ticks_old) / (ball.Y + ball.Vy * ticks - ticks_old / 1000 * scaling) * trys;
+                    if(sys + Canvas.GetTop(player2.rect) / 2 > Canvas.GetTop(player2.rect) / 2 && player2.canmovedown)
+                    {
+                        player2.move(ticks - ticks_old, 15 * scaling);
+                    }else if (sys + Canvas.GetTop(player2.rect) / 2 < Canvas.GetTop(player2.rect) / 2 && player2.canmoveup)
+                    {
+                        player2.move(ticks - ticks_old, -15 * scaling);
+                    }
+                    Console.WriteLine(sys);
                 }
             }
-            #endregion
+                #endregion
 
-            if (score1 == dlg.maxscore)
-            {
-                timer.Stop();
-                MessageBox.Show(l_Player_One_Name.Content + "hat gewonnen", "Win", MessageBoxButton.OK, MessageBoxImage.Information);
-                neues_spiel();
+                if (score1 == dlg.maxscore)
+                {
+                    timer.Stop();
+                    MessageBox.Show(l_Player_One_Name.Content + "hat gewonnen", "Win", MessageBoxButton.OK, MessageBoxImage.Information);
+                    neues_spiel();
+                }
+                else if (score2 == dlg.maxscore)
+                {
+                    timer.Stop();
+                    MessageBox.Show(l_Player_Two_Name.Content + "hat gewonnen", "Win", MessageBoxButton.OK, MessageBoxImage.Information);
+                    neues_spiel();
+                }
+
+                double fps = (1 / (ticks - ticks_old) * 1000);
+                fps = Math.Round(fps);
+                l_fps.Content = fps + " FPS";
+
+                ticks_old = ticks;
             }
-            else if (score2 == dlg.maxscore)
-            {
-                timer.Stop();
-                MessageBox.Show(l_Player_Two_Name.Content + "hat gewonnen", "Win", MessageBoxButton.OK, MessageBoxImage.Information);
-                neues_spiel();
-            }
-
-            double fps = (1 / (ticks - ticks_old) * 1000);
-            fps = Math.Round(fps);
-            l_fps.Content = fps + " FPS";
-
-            ticks_old = ticks;
-        }
 
         private void checkscore()
         {
