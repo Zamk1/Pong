@@ -1,3 +1,3 @@
 # Pong
 
-## !!This was a early project for our C# class in my school, so there can be various bugs in this programm!!
+## !!This was a project for our C# class in my school, so there can be various bugs in this programm!!
